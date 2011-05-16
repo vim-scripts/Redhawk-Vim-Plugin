@@ -1,0 +1,60 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3586
+
+Redhawk Vim: A Vim plugin for Redhawk (http://pypi.python.org/pypi/redhawk)
+
+
+Currently, only redhawk query and replace are supported.
+
+  :Redhawk query <query> [FILE]s
+
+runs the Redhawk query on each of the FILEs, and populates the quickfix
+window.
+
+  :Redhawk replace <query> [FILE]s
+
+runs the Redhawk query on each of the FILEs, and creates an editable quickfix
+window (similar to :GReplace).
+
+
+EXAMPLE USAGE:
+
+1. Query for '**/DefineFunction' in each FILE:
+  Redhawk query '**/DefineFunction' [FILE]
+
+2. Replace all '**/DefineFunction' in each FILE:
+  Redhawk replace '**/DefineFunction' [FILE]
+
+3. Query parallely for '**/DefineFunction' in each FILE:
+  Redhawk query '**/DefineFunction' [FILE] -p
+
+4. Replace all results for '**/DefineFunction' in buffers:
+  RedhawkBuf replace '**/DefineFunction'
+
+
+List of Commands:
+Redhawk:        Query and replace from within Vim.
+RedhawkAdd:     Add to quick fix list.
+RedhawkArgs:    Add args as files to redhawk command.
+RedhawkBuf:     Add files in buffers to redhawk command.
+RedhawkArgsAdd: (similar)
+RedhawkBufAdd:  (similar)
+
+If you do not have redhawk installed on your path, you could set it to
+/path/to/redhawk by setting the g:redhawk_program variable. Optional arguments
+that you might always want to use are set in g:redhawk_args. If you find that
+the default behaviour of the quickfix list popping up irritating, you can set
+g:redhawk_open_resultlist to 0 in your .vimrc
+
+
+Note:
+
+1. Redhawk MUST be installed in PATH, or the g:redhawk_program variable must be
+set.
+
+2. Redhawk can be installed via PyPi: 
+    $ pip install redhawk
+
+The project hompage is here: http://pypi.python.org/pypi/redhawk
+Redhawk is currently under heavy development. The latest development release
+can be found at http://www.github.com/spranesh/Redhawk
+
